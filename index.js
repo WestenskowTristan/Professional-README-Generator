@@ -6,71 +6,147 @@ const generateMarkdown = require("./src/generateMarkdown.js");
 const promptUser = () => {
   return inquirer.prompt([
     {
+      //Email
       type: "input",
-      message: "What is the title of your project?",
+      name: "email",
+      message: "What is your email? (Required)",
+      validate: (emailInput) => {
+        if (emailInput) {
+          return true;
+        } else {
+          console.log("Please enter your email");
+          return false;
+        }
+      },
+    },
+    {
+      //GitHub username
+      type: "input",
+      name: "username",
+      message: "Enter your GitHub username: (Required)",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("Please enter your GitHub username");
+          return false;
+        }
+      },
+    },
+    {
+      //Project Title
+      type: "input",
       name: "title",
-      default: "Project Title",
-      validate: function (answer) {
-        if (answer.length < 1) {
-          return console.log("A valid project title is required.");
+      message: "What is the name of your project? (Required)",
+      validate: (titleInput) => {
+        if (titleInput) {
+          return true;
+        } else {
+          console.log("Please enter your project title");
+          return false;
         }
-        return true;
       },
     },
     {
+      //Description
       type: "input",
-      message: "Write a description of your project.",
       name: "description",
-      default: "Project Description",
-      validate: function (answer) {
-        if (answer.length < 1) {
-          return console.log("A valid project description is required.");
+      message: "Provide a description of your project: (Required)",
+      validate: (descripInput) => {
+        if (descripInput) {
+          return true;
+        } else {
+          console.log("Please enter your project description");
+          return false;
         }
-        return true;
       },
     },
     {
+      //Installation
       type: "input",
-      message:
-        "If applicable, describe the steps required to install your project for the Installation section.",
       name: "installation",
+      message:
+        "What are the steps required to install your project? (Required - Enter N/A if not applicable)",
+      validate: (installInput) => {
+        if (installInput) {
+          return true;
+        } else {
+          console.log("Please enter your installation instructions.");
+          return false;
+        }
+      },
     },
     {
+      //Usage
       type: "input",
-      message:
-        "Provide instructions and examples of your project in use for the Usage section.",
       name: "usage",
-    },
-    {
-      type: "input",
       message:
-        "If applicable, provide guidelines on how other developers can contribute to your project.",
-      name: "contributing",
+        "Provide instructions for use: (Required - Enter N/A if not applicable)",
+      validate: (usageInput) => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log("Please enter your usage instructions.");
+          return false;
+        }
+      },
     },
     {
-      type: "input",
-      message:
-        "If applicable, provide any tests written for your application and provide examples on how to run them.",
-      name: "tests",
-    },
-    {
+      //Licenses
       type: "list",
-      message: "Choose a license for your project.",
-      choices: [
-        "GNU AGPLv3",
-        "GNU GPLv3",
-        "GNU LGPLv3",
-        "Mozilla Public License 2.0",
-        "Apache License 2.0",
-        "MIT License",
-        "Boost Software License 1.0",
-        "The Unlicense",
-      ],
       name: "license",
+      message: "Which license is needed for your project?",
+      choices: ["Apache", "GNU GPLv3", "ISC", "MIT", "No license needed"],
+    },
+    {
+      //Contribution Guidelines
+      type: "input",
+      name: "contribute",
+      message:
+        "Provide guidelines for contributors: (Required - Enter N/A if not applicable)",
+      validate: (contributeInput) => {
+        if (contributeInput) {
+          return true;
+        } else {
+          console.log("Please enter your contribution guidlines.");
+          return false;
+        }
+      },
+    },
+    {
+      //Test instructions
+      type: "input",
+      name: "testing",
+      message:
+        "What are the steps to test? (Required - Enter N/A if not applicable)",
+      validate: (testingInput) => {
+        if (testingInput) {
+          return true;
+        } else {
+          console.log("Please enter your steps to test.");
+          return false;
+        }
+      },
     },
   ]);
 };
 
+// TODO: Create a function to write README file
+function writeToFile(data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile("./README.md", data, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve({
+        ok: true,
+        message: "File created!",
+      });
+    });
+  });
+}
 // TODO: Create a function to write README file
 function writeToFile(data) {
   return new Promise((resolve, reject) => {
