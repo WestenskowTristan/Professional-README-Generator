@@ -21,7 +21,7 @@ To install this you will need to clone the repository linked with this readme, t
 
 ## Usage
 
-click on the link for an instructional video. https://drive.google.com/file/d/1QO3fAgy2E5GRFaSdBMqw-rYhBnSRdQKF/view
+click on the link for an instructional video. <a href="https://drive.google.com/file/d/1QO3fAgy2E5GRFaSdBMqw-rYhBnSRdQKF/view" target="blank_">Video Link</a>
 
 ## License
 
