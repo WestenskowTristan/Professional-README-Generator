@@ -1,10 +1,10 @@
-# Professional-README-Generator
+# Note Taker
 
 [![License]()]()
 
 ## Description
 
-A quick and easier way to make readme.md documents for your next and upcoming coding projects!
+This webpage lets you take notes and save those notes so you can have them for hwennever you need them!
 
 ## Table of Contents
 
@@ -17,11 +17,11 @@ A quick and easier way to make readme.md documents for your next and upcoming co
 
 ## Installation
 
-To install this you will need to clone the repository linked with this readme, then make sure you have Node.js and also Inquirer to run this application.
+no installation required, click <a href="https://tranquil-wildwood-07740.herokuapp.com/">Here</a> for app!
 
 ## Usage
 
-click on the link for an instructional video. <a href="https://drive.google.com/file/d/1QO3fAgy2E5GRFaSdBMqw-rYhBnSRdQKF/view" target="blank_">Video Link</a>
+N/AA
 
 ## License
 
@@ -35,4 +35,4 @@ N/A
 
 ## Questions
 
-If you have any questions, please contact me at [@westenskowtristan122@gmail.com](mailto:@westenskowtristan122@gmail.com) or visit my GitHub page [here](https://github.com/WestenskowTristan/)
+If you have any questions, please contact me at [westenskowtristan122@gmail.com](mailto:westenskowtristan122@gmail.com) or visit my GitHub page [here](https://github.com/WestenskowTristan/)
